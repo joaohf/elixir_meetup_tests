@@ -10,9 +10,25 @@
 \title{Elixir and Erlang tests}
 \subtitle{Baby steps}
 \author[joaohf]{João Henrique Ferreira de Freitas \\ \texttt{https://github.com/joaohf} \\ \texttt{joaof@gmail.com}}
-\date[EMC 2018]{Elixir Meetup, Campinas 2018}
+\date[EMC May 2018]{Elixir Meetup, Campinas May 2018}
 
 \logo{\Revision}
+
+\lstdefinelanguage{elixir}{
+	morekeywords={case,catch,def,do,else,false,%
+		use,alias,receive,timeout,defmacro,defp,%
+		for,if,import,defmodule,defprotocol,%
+		nil,defmacrop,defoverridable,defimpl,%
+		super,fn,raise,true,try,end,with,%
+		unless},
+	otherkeywords={<-,->},
+	sensitive=true,
+	morecomment=[l]{\#},
+	morecomment=[n]{/*}{*/},
+	morestring=[b]",
+	morestring=[b]',
+	morestring=[b]"""
+}
 
 %\AtBeginSection[]
 %{
@@ -31,10 +47,10 @@
   
   \begin{frame}
     \frametitle{Types of tests}   
-    \begin{itemize}
-      \item <1-> Unit
-      \item <2-> Integration
-      \item <3-> Functional    
+    \begin{itemize}[<+->]
+      \item Unit
+      \item Integration
+      \item Functional    
     \end{itemize}
   \end{frame}
   
@@ -47,7 +63,7 @@
     \end{block}
     
     \begin{alertblock}{}
-    A function/method, class, module. Usually a unit is a independent peace of code.
+    A method or class, function or module. Usually a unit is an independent piece of code.
     \end{alertblock}
     
   \end{frame}
@@ -56,7 +72,7 @@
     \frametitle{Examples}
     \framesubtitle{Unit}
     
-    \begin{lstlisting}[]
+    \begin{lstlisting}[language=elixir]
     defmodule ExServer do
     def f(x) when is_integer(x) do  
       true
@@ -73,7 +89,7 @@
     \framesubtitle{Integration}
     
     \begin{block}{}      
-    What does a integration? \pause
+    What does an integration? \pause
     \end{block}
     
     \begin{alertblock}{}
@@ -186,28 +202,45 @@
   \begin{frame}
     \frametitle{Stop the world!}
     \framesubtitle{What is proper testing?}
+
+    \begin{block}{It's all about properties}
+    \begin{itemize}
+    \item Use the framework to encode rules: tedius manual labour: series of posible inputs
+    \item Exercising and exploring the problem space
+    \end{itemize}
+    \end{block}
     
+    \pause
+        
+    \begin{block}{}
+    \begin{itemize}
+    \item litle code, more tests
+    \item automation, boring parts out
+    \item learning curve to get it right
+    \end{itemize}
+    \end{block}
     
+    \pause
+    
+    \begin{examples}
+    60k LOC, 460 LOT and 25 bug uncovered
+    \end{examples}
+    
+  \end{frame}
+  
+  \begin{frame}
+    \frametitle{Stop the world!}
+    \framesubtitle{proper testing resources}
+      
+    \begin{alertblock}{Check it out}
+    \begin{itemize}
+      \item \href{https://www.youtube.com/user/ErlangSolutions/search?query=property}{Talks about propery based tests}
+      \item \href{https://propertesting.com}{propertesting.com}
+    \end{itemize}
+    \end{alertblock}
+
   \end{frame}
 
-  \begin{frame}
-    \begin{center}
-    \Huge Thank You!
-    \end{center}
-  \end{frame}
-    
-  \begin{frame}
-    \frametitle{Colophon}
-    
-    \begin{itemize}
-    \item Latex
-    \item Beamer
-    \item Texmaker
-    \end{itemize}
-    
-  \end{frame}
-  
-  
-  
-% etc
+  \input{tail}
+
 \end{document}
